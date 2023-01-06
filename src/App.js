@@ -1,7 +1,7 @@
-// import './App.css';
 import { content, useTabs } from "./components/useTabs";
 
 const App = () => {
+  // useTabs
   const { currentItem, changeItem } = useTabs(0, content)
   return (
     <div className="App">
