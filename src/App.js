@@ -1,16 +1,15 @@
-import './App.css';
-import { useInput } from "./components/useInput";
+// import './App.css';
+import { content, useTabs } from "./components/useTabs";
 
 const App = () => {
-  /** validator */
-  const maxLengthValidator = (value) => value.length <= 10
-  // useInput
-  const input = useInput("", maxLengthValidator)
-  
+  const { currentItem, changeItem } = useTabs(0, content)
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <input placeholder="Input" {...input} />
+      <h2>{currentItem.content}</h2>
+      {content.map((section, index) => (
+        <button onClick={()=> changeItem(index)}>{section.tab}</button>
+      ))
+      }
     </div>
   );
 }
