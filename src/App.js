@@ -1,8 +1,8 @@
-import { useClick } from "./components/useClick";
+import { useHover } from "./components/useHover";
 const App = () => {
-  /** useClick */
-  const onClick = () => console.log("Click!!")
-  const title = useClick(onClick)
+  /** useHover */
+  const onHover = () => console.log("Hover!!")
+  const title = useHover(onHover)
   return (
     <div className="App">
       <h1 ref={title}>Hello</h1>
