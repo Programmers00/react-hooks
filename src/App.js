@@ -1,10 +1,12 @@
-import { usePreventLeave } from "./components/usePreventLeave";
+import { useBeforeLeave } from "./components/useBeforeLeave"
 const App = () => {
-  const {enablePrevent, disablePrevent } = usePreventLeave()
+  const onBefore = () => {
+    console.log("Please Don't Leave")
+  }
+  useBeforeLeave(onBefore)
   return (
     <div className="App">
-      <button onClick={enablePrevent}>Protect</button>
-      <button onClick={disablePrevent}>Unprotect</button>
+      <h1>Hello</h1>
     </div>
   );
 }
