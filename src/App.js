@@ -1,11 +1,10 @@
-import { useConfirm } from "./components/useConfirm"
+import { usePreventLeave } from "./components/usePreventLeave";
 const App = () => {
-  const yes = () => console.log("Yes")
-  const stop = () => console.log("Stop")
-  const confirmDelete = useConfirm("Are you sure?", yes, stop)
+  const {enablePrevent, disablePrevent } = usePreventLeave()
   return (
     <div className="App">
-      <button onClick={confirmDelete}>Action</button>
+      <button onClick={enablePrevent}>Protect</button>
+      <button onClick={disablePrevent}>Unprotect</button>
     </div>
   );
 }
