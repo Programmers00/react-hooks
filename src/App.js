@@ -1,11 +1,11 @@
-import { useHover } from "./components/useHover";
+import { useConfirm } from "./components/useConfirm"
 const App = () => {
-  /** useHover */
-  const onHover = () => console.log("Hover!!")
-  const title = useHover(onHover)
+  const yes = () => console.log("Yes")
+  const stop = () => console.log("Stop")
+  const confirmDelete = useConfirm("Are you sure?", yes, stop)
   return (
     <div className="App">
-      <h1 ref={title}>Hello</h1>
+      <button onClick={confirmDelete}>Action</button>
     </div>
   );
 }
