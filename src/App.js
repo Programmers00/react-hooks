@@ -1,10 +1,12 @@
-import { useNotification } from "./components/useNotification";
+import { useAxios } from "./components/useAxios";
 const App = () => {
-  const triggerNotification = useNotification("This is Notification", {body: "Notification"})
+  const { loading, data, error, refetch } = useAxios({ url: "https://yts.mx/api/v2/list_movies.json" })
+  console.log(`Loading: ${loading}\nData: ${JSON.stringify(data)}\nError: ${error}`)
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <button onClick={triggerNotification}>Notification</button>
+      <h1>{data && data.status}</h1>
+      <h2>{loading && "Loading"}</h2>
+      <button onClick={ refetch}>Refetch</button>
     </div>
   );
 }
