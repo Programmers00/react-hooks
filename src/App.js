@@ -1,18 +1,10 @@
-import { useFullscreen } from "./components/useFullscreen"
+import { useNotification } from "./components/useNotification";
 const App = () => {
-  const onFullScreen = (isFull) => {
-    console.log(isFull ? "Full" : "Not Full")
-  }
-  const {element, triggerFull, exitFull} = useFullscreen(onFullScreen)
+  const triggerNotification = useNotification("This is Notification", {body: "Notification"})
   return (
     <div className="App">
-      <div ref={ element }>
-      <img src="https://i.ibb.co/R6RwNxx/grape.jpg" alt=''/>
-      <div>
-        <button onClick={triggerFull}>Make Fullscreen</button>
-      <button onClick={exitFull}>Exit Fullscreen</button>  
-        </div>
-        </div>
+      <h1>Hello</h1>
+      <button onClick={triggerNotification}>Notification</button>
     </div>
   );
 }
