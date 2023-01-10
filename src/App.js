@@ -1,11 +1,12 @@
-import { useFadeIn } from "./components/useFadeIn";
+import {useNetwork} from './components/useNetwork'
 const App = () => {
-  const fadeInH1 = useFadeIn(2, 0)
-  const fadeInH2 = useFadeIn(4, 2)
+  const handleNetworkChange = (online) => {
+    console.log(online? "Online" : "Offline")
+  }
+  const onLine = useNetwork(handleNetworkChange)
   return (
     <div className="App">
-      <h1 {...fadeInH1}>FadeInH1</h1>
-      <h2 {...fadeInH2}>FadeInH2</h2>
+      <h1>{onLine ? "Online" : "Offline"}</h1>
     </div>
   );
 }
